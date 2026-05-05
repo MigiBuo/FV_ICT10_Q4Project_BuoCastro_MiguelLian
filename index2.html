@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.1/core.css" />
+   <script type="module" src="https://pyscript.net/releases/2024.8.1/core.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css2?family=Gill+Sans&display=swap" rel="stylesheet" />
+   <title>Attendance Tracker</title>
+ <style>
+     body {
+       font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+       background: linear-gradient(to right, #F28266, #EF6AB3);
+       padding: 20px;
+       margin: 0;
+       text-shadow: 2px 2px 6px rgb(239, 84, 84);
+   }
+   .page-shell {
+     max-width: 800px;
+     margin: 0 auto;
+     padding: 20px;
+     background-color: #f8f9fa;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgb(239, 84, 84);
+   }
+   .page-title {
+     font-size: 2rem;
+     margin-bottom: 10px;
+   }
+   .page-subtitle {
+     font-size: 1.25rem;
+     color: #83513E;
+     margin-bottom: 20px;
+   }
+    .grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 20px;
+   }
+   .tracker-card,
+   .plot-card {
+     background-color: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 4px rgb(239, 84, 84);
+   }
+    .tracker-title {
+     font-size: 1.5rem;
+     margin-bottom: 15px;
+   }
+    .form-label {
+     font-weight: 500;
+   }
+    #plot-area {
+     height: 300px;
+   }
+    button {
+       color: #E29255;
+       border: 2px solid #EF6AB3;
+       border-radius: 8px;
+       padding: 10px 20px;
+       cursor: pointer;
+       transition: background-color 0.3s, color 0.3s;
+   }
+    button:hover {
+       background-color: #F6DFB3;
+       color: white;
+   }
+ </style>
+</head>
+<body>
+<center>
+        <nav class="navbar-expand-md bg-black navbar-black fixed-top">
+	<!-- Brand/Logo -->
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html"></a>
+</div>
+	<!-- Add Links -->
+<div class="collapse navbar-collapse">
+	<ul class="navbar-nav me-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html" style="color: #E2C5AE;">|Classmate List|-</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index2.html" style="color: #E2C5AE;">|Attendance Tracker|-</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index3.html" style="color: #E2C5AE;">|Class Activities|</a>
+		</li>
+	</ul>
+	<!-- Add a search bar -->
+    <form class="d-flex">
+    	    <input class="form-control" text="text" placeholder="search...">
+    	    <button class="btn btn-primary" type="button">Search</button>
+    </form>
+</div>
+</div>
+</nav>
+
+<div class="page-shell">
+       <center><h1 class="page-title">Attendance Tracker</h1></center>
+       <center><p class="page-subtitle">Track weekly attendances and daily absences using an interactive chart.</p></center>
+
+       <div class="grid">
+           <div class="tracker-card">
+               <h2 class="tracker-title">Log Absences</h2>
+               <form id="attendance-form">
+                   <div class="mb-4">
+                       <label for="day-select" class="form-label">Select Day:</label>
+                       <select id="day-select" class="form-select">
+                           <option>Monday</option>
+                           <option>Tuesday</option>
+                           <option>Wednesday</option>
+                           <option>Thursday</option>
+                           <option>Friday</option>
+                       </select>
+                   </div>
+                   <div class="mb-4">
+                       <label for="absences-input" class="form-label">Absences:</label>
+                       <input id="absences-input" type="number" min="0" class="form-control" value="0" />
+                   </div>
+<button type="submit">Add Absence</button>
+                   <div id="status"></div>
+               </form>
+           </div>
+           <div class="plot-card">
+               <h3>Weekly Absence Chart</h3>
+               <div id="plot-area"></div>
+           </div>
+       </div>
+   </div>
+   <py-config>
+       packages = ['numpy', 'matplotlib']
+   </py-config>
+   <py-script src="main2.py"></py-script>
+</center>
+</body>
+</html>

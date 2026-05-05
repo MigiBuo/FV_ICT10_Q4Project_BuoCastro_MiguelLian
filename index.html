@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.8.1/core.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Grade 10 Classmates System</title>
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #F28266 0%, #EF6AB3 40%, #E29255 100%);
+            color: #eef2ff;
+        }
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card-custom {
+            background: linear-gradient(180deg, #E2C5AE 0%, #F28695 100%);
+            border: 1px solid rgb(238, 130, 130);
+            border-radius: 24px;
+            box-shadow: 0 22px 70px rgb(239, 84, 84);
+        }
+        .form-control,
+        .form-label {
+            background: #ffffff;
+            color: #eef2ff;
+            border: 1px solid #ffffff;
+        }
+        .form-control:focus {
+            border-color: #F28AA1;
+            box-shadow: 0 0 0 6px #F6DFB3;
+            background: #83513E;
+            color: #eef2ff;
+        }
+        .btn-add {
+            background: linear-gradient(135deg, #A72913, #E8AF59);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+        }
+        .btn-list {
+            background: linear-gradient(135deg, #E8AF59, #A72913);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+        }
+        .btn-add:hover,
+        .btn-list:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+        #output {
+            min-height: 120px;
+        }
+        .intro-card {
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            background: rgba(239, 84, 84);
+            border: 1px solid rgba(241, 161, 230, 0.96);
+            color: #eef2ff;
+            line-height: 1.6;
+        }
+        .intro-card span {
+            display: block;
+            margin-top: 8px;
+            color: #bfdbfe;
+            font-size: 0.92rem;
+        }
+        #message {
+            min-height: 1.5rem;
+            color: #bfdbfe;
+        }
+    </style>
+</head>
+<body>
+<center>
+        <nav class="navbar-expand-md bg-black navbar-black fixed-top">
+	<!-- Brand/Logo -->
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html"></a>
+</div>
+	<!-- Add Links -->
+<div class="collapse navbar-collapse">
+	<ul class="navbar-nav me-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html" style="color: #E2C5AE;">|Classmate List|-</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index2.html" style="color: #E2C5AE;">|Attendance Tracker|-</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index3.html" style="color: #E2C5AE;">|Class Activities|</a>
+		</li>
+	</ul>
+	<!-- Add a search bar -->
+    <form class="d-flex">
+    	    <input class="form-control" text="text" placeholder="search...">
+    	    <button class="btn btn-primary" type="button">Search</button>
+    </form>
+</div>
+</div>
+</nav>
+
+    <div class="page-wrapper">
+        <div class="card-custom p-4 w-100" style="max-width: 720px;">
+            <h1 class="mb-1"> Grade 10 Classmates System</h1>
+            <p class="text-secondary mb-4">Add and view your classmates easily</p>
+
+            <form>
+                <div class="mb-3">
+                    <input id="name" type="text" class="form-control" placeholder="Name" />
+                </div>
+                <div class="mb-3">
+                    <input id="section" type="text" class="form-control" placeholder="Section" />
+                </div>
+                <div class="mb-3">
+                    <input id="favorite_subject" type="text" class="form-control" placeholder="Favorite subject" />
+                </div>
+                <div class="d-flex gap-2 mb-3">
+                    <button type="button" class="btn btn-add flex-fill" py-click="add_classmate">Add Classmate</button>
+                    <button type="button" class="btn btn-list flex-fill" py-click="show_intro">Show List</button>
+                </div>
+            </form>
+
+            <p id="message"></p>
+
+            <h2 class="mt-4 mb-3">Classmate List</h2>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <py-script src="main.py"></py-script>
+</center>
+</body>
+</html>
